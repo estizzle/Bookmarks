@@ -12,5 +12,17 @@ addButton.addEventListener('click', () => {
 function addBookmark2Array() {
     let holder = {}
     holder[inputLink.value] = inputName.value
-    bookArray.push(holder)
+    bookArray.unshift(holder)
+    return add2List()
+}
+
+// Adds link to list
+function add2List() {
+    const listItem = document.createElement('li')
+    const link = document.createElement('a')
+    listItem.append(link)
+    link.target = '_blank'
+    link.href = Object.keys(bookArray[0])
+    link.textContent = Object.values(bookArray[0])
+    bookmarks.prepend(listItem)
 }
