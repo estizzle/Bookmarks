@@ -5,8 +5,12 @@ const bookmarks = document.querySelector('ul')
 let bookArray = []
 
 addButton.addEventListener('click', () => {
+    addBookmark2Array()
+})
+
+// Adds link and name to object, then adds object to array
+function addBookmark2Array() {
     let holder = {}
     holder[inputLink.value] = inputName.value
     bookArray.push(holder)
-    console.log(bookArray)
-})
+}
