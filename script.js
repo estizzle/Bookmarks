@@ -6,9 +6,11 @@ let bookArray = []
 
 addButton.addEventListener('click', () => {
     addBookmark2Array()
+    inputLink.value = ""
+    inputName.value = ""
 })
 
-// Adds link and name to object, then adds object to array
+// Adds link and name to object, then adds object to array, and clears input
 function addBookmark2Array() {
     let holder = {}
     holder[inputLink.value] = inputName.value
@@ -20,9 +22,20 @@ function addBookmark2Array() {
 function add2List() {
     const listItem = document.createElement('li')
     const link = document.createElement('a')
+    const removeButton = document.createElement('button')
+    removeButton.classList.add('remove')
+    removeButton.textContent = "-"
     listItem.append(link)
+    listItem.append(removeButton)
     link.target = '_blank'
     link.href = Object.keys(bookArray[0])
     link.textContent = Object.values(bookArray[0])
-    bookmarks.prepend(listItem)
+    bookmarks.append(listItem)
 }
+
+
+
+
+// add remove buttons
+// re render whenever a bookmark is removed
+// use map at some point
